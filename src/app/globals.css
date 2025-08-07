@@ -10,6 +10,39 @@
   }
 }
 
+/* Alturas personalizadas estilo Tailwind */
+.h-5 {height: 1.5rem;}
+.h-8   { height: 2rem; }
+.h-10  { height: 2.5rem; }   /* 40px */
+.h-15  { height: 3.75rem; }  /* 60px */
+.h-20  { height: 5rem; }     /* 80px */
+.h-30  { height: 7.5rem; }   /* 120px */
+.h-40  { height: 10rem; }    /* 160px */
+.h-60  { height: 15rem; }    /* 240px */   
+.h-80  { height: 20rem; }    /* 320px */
+.h-100 { height: 25rem; }    /* 400px */
+.h-screen { height: 100vh; }
+.h-full   { height: 100%; }
+
+/* Width utilities */
+.w-5 {width: 1.5rem;}
+.w-8    { width: 2rem; }
+.w-10   { width: 2.5rem; }     /* 40px */
+.w-15   { width: 3.75rem; }    /* 60px */
+.w-20   { width: 5rem; }       /* 80px */
+.w-30   { width: 7.5rem; }     /* 120px */
+.w-40   { width: 10rem; }      /* 160px */
+.w-45   { width: 11rem; }      /* 160px */
+.w-50   { width: 12.5rem; }    /* 200px */
+.w-60   { width: 15rem; }      /* 240px */
+.w-80   { width: 20rem; }      /* 320px */
+.w-100  { width: 25rem; }      /* 400px */
+.w-120  { width: 30rem; }      /* 480px */
+
+.w-screen { width: 100vw; }
+.w-full   { width: 100%; }
+.w-min {width: min-content;}
+
 html,
 body {
   max-width: 100vw;
@@ -35,8 +68,112 @@ a {
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+ul, li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navbar-ui{
+  background-image: linear-gradient(to top, #0a2133 0%, #094374 100%);
+}
+
+.navbar-ui a{
+  color: #f8f8f8;
+  font-weight: 300;
+}
+
+.btn-light-ui{
+  background: #fcfcfcd2 !important;
+  color: #171717  !important;
+}
+.btn-light-ui:hover{
+  background: #fff !important;
+}
+
+.text-xs{
+  font-size: .9rem;
+}
+
+.font-bold{
+  font-weight: 500;
+}
+
+.floating-input-group{
+  position: relative;
+}
+
+.floating-input {
+  width: 100%;
+  padding: 0.55rem 0.75rem 0.25rem;
+  border: 1px solid #ced4da;
+  border-radius: 0.5rem;
+  outline: none;
+  font-size: .9rem;
+  transition: border-color 0.3s;
+}
+
+.floating-label {
+  position: absolute;
+  top: 48%;
+  left: 0.35rem;
+  font-size: .9rem;
+  transform: translateY(-48%);
+  background-color: white;
+  padding: 0 0.25rem;
+  color: #6c757d;
+  transition: 0.2s ease all;
+  pointer-events: none;
+}
+
+.floating-label-text-area {
+  position: absolute;
+  top: 0.8rem;
+  left: 0.5rem;
+  font-size: 0.9rem;
+  transform: translateY(-48%);
+  color: #6c757d;
+  background: white;
+  padding: 0 0.25rem;
+  transition: 0.2s ease all;
+  pointer-events: none;
+}
+
+/* Estilo cuando textarea tiene foco o contenido */
+.textarea-floating:focus + .floating-label-text-area,
+.textarea-floating:not(:placeholder-shown) + .floating-label-text-area {
+  top: -0.6rem;
+  transform: translateY(-40%);
+  left: 0.4rem;
+  font-size: 0.75rem;
+  color: #007bff;
+}
+
+
+.floating-input:focus + .floating-label,
+.floating-input:not(:placeholder-shown) + .floating-label,
+.floating-input:valid + .floating-label {
+  top: 0.1rem;
+  font-size: 0.75rem;
+  color: #495057;
+}
+
+/* Efecto de foco */
+.floating-input:focus {
+  border-color: #0a90dd;
+}
+
+.floating-input:focus + .floating-label {
+  color: #0a90dd;
+}
+
+
+/* Table Data UI */
+
+.h-table-data{
+  height: calc(100vh - 150px);
+}
+
+.cursor-pointer {
+  cursor: pointer;
 }

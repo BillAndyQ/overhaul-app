@@ -1,5 +1,10 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import SidebarUI from "@/components/SidebarUI.js";
+import { ENDPOINT_API, PATH_FRONT } from "@/utils/endpoints";
+import { UserProvider } from "./userContext";
+import SidebarLoginUI from "@/components/SidebarLoginUI"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -17,10 +22,19 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        {children}
+        <div className="d-flex h-full">
+          <UserProvider>
+            <SidebarLoginUI urlLogout={ENDPOINT_API.logout}></SidebarLoginUI>
+            
+            <div className="w-full h-screen overflow-y-scroll">
+              {children}
+            </div>
+          </UserProvider>
+        </div>
       </body>
     </html>
   );
