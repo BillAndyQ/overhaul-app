@@ -3,7 +3,8 @@ import { insertIntoTable, queryDB, updateTableById} from "@/utils/db_tables/conn
 import { saveFile } from "@/utils/db_tables/saveFile"
 
 export async function GET(request, context) {
-  const { params } = context;
+  const params = await context.params; 
+  
   const { ot_equipos, unidades_ot_equipos } = dbTables;
   
   const ot_per = params.ot;

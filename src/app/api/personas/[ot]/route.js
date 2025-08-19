@@ -2,8 +2,9 @@ import dbTables from "@/utils/db_tables/tables"
 import { queryDB, insertIntoTable} from "@/utils/db_tables/connect"
 
 
-export async function GET(request, { params }) {
+export async function GET(request, context) {
   const { ot_personas } = dbTables;
+  const { params } = context;
 
   const ot_per = params.ot;
 
@@ -46,6 +47,8 @@ export async function PUT(req, { params }) {
         return NextResponse.json({ error: 'Error al guardar archivo' }, { status: 500 });
       }
       fieldsData.src_certificado = result.path;
+      console.log("path File",result.path);
+      
     } catch (err) {
       console.error("❌ Error al guardar archivo:", err);
       return NextResponse.json({ error: 'Error al guardar archivo' }, { status: 500 });

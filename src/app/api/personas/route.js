@@ -61,7 +61,7 @@ export async function POST(req) {
     
     if(src_certificado){
       result = await saveFile(src_certificado, codeOT);
-      fieldsData.src_certificado = result.filename
+      fieldsData.src_certificado = result.path
       if (!result.success) {
         return NextResponse.json({ error: 'Error al guardar archivo' }, { status: 500 });
       }

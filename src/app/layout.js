@@ -26,7 +26,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <div className="d-flex h-full">
+        <div className="d-flex h-full flex-column flex-lg-row">
           <UserProvider>
             <SidebarLoginUI urlLogout={ENDPOINT_API.logout}></SidebarLoginUI>
             

@@ -5,10 +5,12 @@ import { buildJoinedSelectFields } from "@/utils/db_tables/tables";
 import { cleanFields } from "@/utils/db_tables/tables";
 
 export async function GET(request, context) {
-  const { params } = context;
-  const { ot_equipos, unidades_ot_equipos, ot_facturas } = dbTables;
-  
+  const params = await context.params; 
   const ot_eq = params.ot;
+
+
+  const { ot_facturas } = dbTables;
+  
   console.log(ot_eq);
 
   const columns = buildJoinedSelectFields(
@@ -50,7 +52,8 @@ import { parseFormData } from "@/utils/db_tables/parseFormData"
 import { NextResponse } from 'next/server';
 
 export async function PUT(req, context){
-  const { params } = context;
+  const params = await context.params; 
+
   const codeOT = params.ot;
   
   const data = await parseFormData(req);
@@ -99,7 +102,7 @@ export async function PUT(req, context){
   }
   
   if(Object.keys(fieldsData).length !== 0){
-    result = await updateTableById("ot_facturas",fieldsData, "id", id_fact)
+    result = await updateTableById("ot_facturas",fieldsData, "id", id)
   }
   
   return NextResponse.json({

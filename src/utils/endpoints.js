@@ -10,6 +10,12 @@ const gerente = "gerente";
 const all = [admin, contador, inspector, gerente]
 
 const PATH_FRONT = {
+  // dashboard : {
+  //   url : `${URL_FRONT}/dashboard`,
+  //   roles : [admin, contador],
+  //   label : "Panel Control"
+
+  // },
   ot_equipos: {
     url : `${URL_FRONT}/ot-equipos`,
     roles : all,
@@ -44,7 +50,7 @@ const PATH_FRONT = {
     url : `${URL_FRONT}/compras`,
     roles : [contador],
     label : "Compras"
-  }
+  },
 };
 
 // API BACKEND

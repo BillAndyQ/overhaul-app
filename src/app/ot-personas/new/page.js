@@ -10,10 +10,11 @@ import FormGenerate from "@/components/form/FormGenerate";
 import FormTextArea from "@/components/form/FormTextArea";
 import Link from "next/link";
 import { ENDPOINT_API, PATH_FRONT } from "@/utils/endpoints";
+import FieldsAsync from "@/components/form/FieldsAsync";
 
 export default function Page(){
     const {ot_personas} = dbTables
-    const {id, n_ord_trabajo, proyecto,...rest} = ot_personas
+    const {id, n_ord_trabajo, empresa_socia, ruc ,proyecto,...rest} = ot_personas
 
     return(
         <div>
@@ -21,6 +22,7 @@ export default function Page(){
                 <Link href="/ot-personas">← Atrás</Link>
 
                 <legend>Nueva OT Persona</legend>
+                <FieldsAsync configs={[empresa_socia, ruc]}></FieldsAsync>
                  
                 <FormGenerate fields={rest}></FormGenerate>
 

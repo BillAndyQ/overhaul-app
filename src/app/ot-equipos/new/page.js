@@ -7,11 +7,13 @@ import FormSubmit from "@/components/form/FormSubmit"
 import Link from "next/link"
 import { useUser } from "@/app/userContext"
 import { filterForRoles } from "@/utils/db_tables/tables"
+import FieldsAsync from "@/components/form/FieldsAsync"
 
 export default function Page(){
     const {ot_equipos} = dbTables
     const {user} = useUser()
     const role = user?.role || ""
+    const {empresa_socia, ruc, ...fields} = ot_equipos
 
     return(
         <div>
@@ -20,7 +22,9 @@ export default function Page(){
                 ← Atrás
             </Link>
                 <legend>Nueva OT (Equipos)</legend>
-                <FormGenerate fields={filterForRoles(ot_equipos, role)}></FormGenerate>
+                <FieldsAsync configs={[empresa_socia, ruc]}></FieldsAsync>
+                
+                <FormGenerate fields={filterForRoles(fields, role)}></FormGenerate>
                 <FormSubmit></FormSubmit>
             </BaseForm>
         </div>

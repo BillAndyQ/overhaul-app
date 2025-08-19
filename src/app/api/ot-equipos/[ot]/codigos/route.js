@@ -2,7 +2,7 @@ import dbTables from "@/utils/db_tables/tables"
 import {queryDB} from "@/utils/db_tables/connect"
 
 export async function GET(request, context) {
-  const { params } = await context;
+  const params = await context.params; 
   const { ot_equipos, unidades_ot_equipos } = dbTables;
   
   const ot_eq = await params.ot;

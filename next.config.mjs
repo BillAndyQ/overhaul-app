@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    allowedDevOrigins: ["192.168.1.20"],
+    allowedDevOrigins: [process.env.NEXT_PUBLIC_APP_URL],
 };
 
 export default nextConfig;

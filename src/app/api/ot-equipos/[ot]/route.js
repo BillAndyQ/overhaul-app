@@ -4,8 +4,8 @@ import { queryDB, insertIntoTable} from "@/utils/db_tables/connect"
 export async function GET(request, context) {
   try {
     const { ot_equipos } = dbTables;
+    const params = await context.params;
 
-    const params = context && context.params ? context.params : {};
     const ot_eq = params.ot;
 
     if (!ot_eq) {
@@ -41,7 +41,6 @@ export async function GET(request, context) {
 
 import { NextResponse } from 'next/server';
 import { parseFormData } from "@/utils/db_tables/parseFormData"
-import { saveFile } from "@/utils/db_tables/saveFile"
 import { updateTableById } from "@/utils/db_tables/connect";
 
 export async function PUT(req, { params }) {

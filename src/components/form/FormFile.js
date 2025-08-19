@@ -114,8 +114,14 @@ export default function FormFile({ label, name, accept = "*" }) {
               id={name}
               accept={accept}
               style={{ display: "none" }}
-              onChange={(e) => handleChange(name, e.target.files)}
+              onChange={(e) => {
+                const file = e.target.files && e.target.files[0];
+                if (file) {
+                  handleChange(name, file); //  le pasas un File, no FileList
+                }
+              }}
             />
+
           </>
         )}
       </div>
