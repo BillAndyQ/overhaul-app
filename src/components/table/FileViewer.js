@@ -7,7 +7,8 @@ export default function FileViewer({ value, className = "" }) {
   useEffect(() => {
     import('bootstrap/dist/js/bootstrap.bundle.js');
   }, []);
-
+  console.log(value);
+  
   const getFileUrl = () => {
     if (value instanceof File) return URL.createObjectURL(value);
     if (typeof value === "string") {

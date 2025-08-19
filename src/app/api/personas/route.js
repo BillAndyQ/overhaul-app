@@ -22,7 +22,7 @@ export async function GET(req) {
   if(["contador", "gerente"].includes(role)){
     result = await queryDBWhere(`SELECT ${columns} FROM ot_personas left join
       ot_facturas on
-      ot_personas.id_ord_trab = ot_facturas.id_ord_trab
+      ot_facturas.id_ot_persona = ot_personas.id
       ${where}
       order by ot_personas.id`, values)
   }

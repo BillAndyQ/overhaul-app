@@ -41,7 +41,7 @@ export default function TableUnitCell({ getDataUrl, config, nameTable, sendDataU
         };
 
         fetchData();
-    }, [getDataUrl, createEmptyRow]);
+    }, [getDataUrl]);
 
     useEffect(() => {
         if (!isSubmitting) return;

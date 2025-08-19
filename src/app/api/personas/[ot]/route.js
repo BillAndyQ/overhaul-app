@@ -12,7 +12,7 @@ export async function GET(request, { params }) {
   const data = await queryDB(
     `SELECT ${columnas} FROM ot_personas WHERE n_ord_trabajo='${ot_per}'`
   );
-
+  
   return Response.json({
     success: true,
     message: "Solicitud Correcta",
@@ -45,7 +45,7 @@ export async function PUT(req, { params }) {
       if (!result.success) {
         return NextResponse.json({ error: 'Error al guardar archivo' }, { status: 500 });
       }
-      fieldsData.src_certificado = result.filename;
+      fieldsData.src_certificado = result.path;
     } catch (err) {
       console.error("❌ Error al guardar archivo:", err);
       return NextResponse.json({ error: 'Error al guardar archivo' }, { status: 500 });

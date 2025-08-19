@@ -41,7 +41,7 @@ export function UserProvider({ children }: { children: ReactNode }) {
           setUser(null);
         }
       } catch (error) {
-        console.error('Error fetching user:', error);
+        console.log('Error fetching user:', error);
         setUser(null);
       } finally {
         setIsLoading(false);

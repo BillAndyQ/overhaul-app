@@ -45,7 +45,7 @@ export default function Page() {
                 
                 <FormGenerate fields={fieldsOT}></FormGenerate>
                 <FormFile label={"Certificado"} name={"src_certificado"}></FormFile>
-
+                    
                 {(role === 'contador') && (
                     <TableUnitCell
                         config={ot_facturas}

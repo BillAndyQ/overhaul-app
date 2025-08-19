@@ -4,7 +4,7 @@ import { cookies } from "next/headers";
 const SECRET = new TextEncoder().encode(process.env.JWT_SECRET);
 
 export async function getUserFromToken() {
-  const cookieStore = cookies();
+  const cookieStore = await cookies();
   const token = cookieStore.get("token")?.value;
 
   if (!token) {

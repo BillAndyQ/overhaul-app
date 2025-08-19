@@ -24,7 +24,7 @@ export async function GET(req) {
     select ${columns} from ot_equipos 
       left join
       ot_facturas on
-      ot_equipos.id_ord_trab = ot_facturas.id_ord_trab
+      ot_equipos.id = ot_facturas.id_ot_equipos
       ${where}
       order by ot_equipos.id
       ;
