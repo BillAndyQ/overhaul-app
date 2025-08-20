@@ -2,14 +2,15 @@ import dbTables from "@/utils/db_tables/tables"
 import { buildWhereClause, queryDB, updateTableById} from "@/utils/db_tables/connect"
 
 
-export async function GET(req, {params}){
+export async function GET(req, context){
+    const params = await context.params; 
     const idFactura = params.id;
     
     const {ot_facturas} = dbTables
     
-    let data = await queryDB(`SELECT ${Object.keys(ot_facturas)} FROM ot_facturas where id=${idFactura}`)
+    let data = await queryDB(`SELECT ${Object.keys(ot_facturas)} FROM ot_facturas where id=${parseInt(idFactura)}`)
     
-    data.formatFecha("fecha_factura")
+    // data.formatFecha("fecha_factura")
 
     return Response.json({
     success: true,
